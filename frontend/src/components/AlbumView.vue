@@ -1,16 +1,18 @@
 <template>
   <div class="hello">
     <h2><router-link :to="albumLink">{{album.name}}</router-link></h2>
-    <h2>@ {{album.artist.name}} {{album.artist.surname}}</h2>
+    <h2>name: {{album.artist.name}} --- surname :{{album.artist.surname}}</h2>
   </div>
 </template>
 
 <script>
   export default {
+
     name: 'AlbumView',
     props: {
       album: { type: Object, required: true }
-    },computed: {
+    },
+    computed: {
       albumLink(){
         console.log(this.album.id);
         return `/albums/${this.album.id}`

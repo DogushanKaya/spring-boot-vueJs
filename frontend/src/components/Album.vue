@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{album.name}}</h1>
-    <h2>{{album.year}}  -  {{album.format}}</h2>
-    <h2>{{album.artist.name}} {{album.artist.surname}}</h2>
+    <h2>{{album.name}}  -  {{album.format}}</h2>
+    <h2>{{album.name}} </h2>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
       })
 
 
-  }
+  },
 
 }
 </script>
@@ -52,3 +52,4 @@ a {
   color: #42b983;
 }
 </style>
+

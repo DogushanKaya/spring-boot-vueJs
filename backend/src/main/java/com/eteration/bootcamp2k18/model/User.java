@@ -13,18 +13,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int id;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @Transient
     private String password;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "active")
-    private int active;
+    private boolean active;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 
@@ -68,11 +74,11 @@ public class User {
         this.email = email;
     }
 
-    public int getActive() {
+    public boolean getActive() {
         return active;
     }
 
-    public void setActive(int active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

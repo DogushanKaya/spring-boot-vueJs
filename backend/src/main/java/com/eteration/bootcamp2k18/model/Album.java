@@ -1,6 +1,7 @@
 package com.eteration.bootcamp2k18.model;
 
 import com.eteration.bootcamp2k18.type.FormatEnum;
+import com.eteration.bootcamp2k18.type.GenreEnum;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Album {
     private String name;
     private String year;
     private FormatEnum format;
+    private GenreEnum genre;
 
     @OneToMany(mappedBy="album")
     private List<Track> trackList = new ArrayList<>();
@@ -74,4 +76,11 @@ public class Album {
     }
 
 
+    public GenreEnum getGenreEnum() {
+        return genre;
+    }
+
+    public void setGenreEnum(GenreEnum genre) {
+        this.genre = genre;
+    }
 }
