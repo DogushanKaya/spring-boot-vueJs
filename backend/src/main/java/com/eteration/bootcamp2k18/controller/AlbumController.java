@@ -4,8 +4,6 @@ import com.eteration.bootcamp2k18.model.Album;
 import com.eteration.bootcamp2k18.model.Artist;
 import com.eteration.bootcamp2k18.repositories.AlbumRepository;
 import com.eteration.bootcamp2k18.repositories.ArtistRepository;
-import com.eteration.bootcamp2k18.type.FormatEnum;
-import com.eteration.bootcamp2k18.type.GenreEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,16 +21,18 @@ public class AlbumController {
     ArtistRepository artistRepository;
 
     @GetMapping("/all")
-    public List<Album> getAll() {
+    public List<Album>getAll(){
         return albumRepository.findAll();
     }
 
+
+
     @PostMapping("/save")
-    public Album saveAlbum(@RequestBody Album album) {
+    public Album saveAlbum(@RequestBody Album album){
 
-        Artist byNameAndSurname = artistRepository.findByNameAndSurname(album.getArtist().getName(), album.getArtist().getSurname());
+        Artist byNameAndSurname = artistRepository.findByNameAndSurname(album.getArtist().getName(),album.getArtist().getSurname());
 
-        if (byNameAndSurname != null) {
+        if(byNameAndSurname!= null){
             album.setArtist(byNameAndSurname);
         }
 
@@ -41,11 +41,13 @@ public class AlbumController {
         return savedAlbum;
     }
 
-    @DeleteMapping("/{year}")
-    public void deleteAlbumByYear(@PathVariable("year") String year) {
+    /*@DeleteMapping("/{year}")
+    public void deleteAlbumByYear(@PathVariable("year") String year){
         albumRepository.delete(albumRepository.findByYear(year));
     }
-
-
-
+*/
+   /* @RequestMapping(path = "/{artistname}",method = RequestMethod.GET)
+    public List<Album> getAlbumByArtistName(@PathVariable("artistname") String artistname){
+        return albumRepository.findByArtistName(artistname);
+    }*/
 }

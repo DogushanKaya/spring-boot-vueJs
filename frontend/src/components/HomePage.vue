@@ -1,15 +1,23 @@
 <template>
-    <div id="app">
-<!--
-        <img src="./assets/discogs.png">
--->     <div class="container-fluid">
-
-        <router-link :to="loginLink"><button class="btn btn-lg btn-primary btn-block" type="submit" >Log In</button></router-link>
 
 
+    <div class="container fixed-top">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm"></div>
+            <div class="col-sm" style="padding-right: auto">
+                <router-link :to="loginLink"><button class="btn btn-lg btn-primary btn-block" type="submit" >Log In</button></router-link>
+            </div>
+
+            <div class="col-sm">
+                <router-link :to="registerLink"><button class="btn btn-lg btn-primary btn-block" type="submit" >Register</button></router-link>
+            </div>
         </div>
-        <!--<router-view/>-->
     </div>
+
+<!--
+       <div class="container">
+        </div>-->
 </template>
 
 <script>
@@ -18,20 +26,18 @@
     computed: {
         loginLink(){
             return `/login`
+        },
+        registerLink(){
+            return `/register`
         }
+
 
     }
     }
 </script>
 
 <style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-        margin-right: 15%;
-    }
+
+
+
 </style>

@@ -19,7 +19,9 @@ public interface AlbumRepository extends JpaRepository<Album,Long> {
 
     List<Album> findByFormat(FormatEnum format);
 
-    List<Album> findByGenre(GenreEnum genre);
+    List<GenreEnum> findByGenre(GenreEnum genre);
+
+
 
 
     //@Query("select album from Album album where album.artist.name=:artistName")

@@ -76,11 +76,11 @@ public class Album {
     }
 
 
-    public GenreEnum getGenreEnum() {
+    public GenreEnum getGenre() {
         return genre;
     }
 
-    public void setGenreEnum(GenreEnum genre) {
+    public void setGenre(GenreEnum genre) {
         this.genre = genre;
     }
 }

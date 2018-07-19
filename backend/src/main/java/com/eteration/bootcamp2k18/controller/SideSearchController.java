@@ -6,10 +6,7 @@ import com.eteration.bootcamp2k18.repositories.ArtistRepository;
 import com.eteration.bootcamp2k18.type.FormatEnum;
 import com.eteration.bootcamp2k18.type.GenreEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,13 +19,20 @@ public class SideSearchController {
     @Autowired
     ArtistRepository artistRepository;
 
-    @RequestMapping(path = "/genre/{genre}", method = RequestMethod.GET)
+/*    @RequestMapping(path = "/genre/{genre}", method = RequestMethod.GET)
     public List<Album> getAlbumByGenre(@PathVariable("genre") GenreEnum genre) {
         return albumRepository.findByGenre(genre);
     }
+    */
 
     @RequestMapping(path = "/format/{format}", method = RequestMethod.GET)
     public List<Album> getAlbumByFormat(@PathVariable("format") FormatEnum format) {
         return albumRepository.findByFormat(format);
+    }
+
+    @RequestMapping(path = "/genre/all", method = RequestMethod.GET)
+    public List<GenreEnum> getAlbumByGenre(GenreEnum genre) {
+
+        return albumRepository.findByGenre(genre);
     }
 }
